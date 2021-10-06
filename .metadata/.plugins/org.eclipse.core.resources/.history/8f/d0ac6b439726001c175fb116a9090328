@@ -1,0 +1,15 @@
+package strategy.client;
+
+import java.sql.Connection;
+
+import strategy.framework.ConnectionMaker;
+
+public class ConnectionFactory implements ConnectionMaker{
+
+	@Override
+	public Connection getConnection() {	//connection 생성해서 dao로 반환해야함 
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

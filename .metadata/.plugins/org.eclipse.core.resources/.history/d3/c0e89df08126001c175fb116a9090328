@@ -1,0 +1,33 @@
+package factory.framework;
+
+import java.util.Date;
+
+public class ConnectorFactory {	//변경될 일이 없는 값이므로  builder pattern으로 구현 
+	
+	protected String url;
+	protected String id;
+	protected String password;
+	protected Date ConnectTime;
+	
+	public static class ConnectorFactoryBuilder{	//이너클래스 
+		
+		protected String url;
+		protected String id;
+		protected String password;
+		
+		public ConnectorFactoryBuilder url(String url) {
+			this.url = url;
+			return this;
+		}
+		public ConnectorFactoryBuilder id(String id) {
+			this.id = id;
+			return this;
+		}
+		public ConnectorFactoryBuilder password(String password) {
+			this.password = password;
+			return this;
+		}
+		
+	}
+	
+}

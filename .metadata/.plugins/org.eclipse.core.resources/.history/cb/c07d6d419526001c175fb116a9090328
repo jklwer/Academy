@@ -1,0 +1,23 @@
+package templateMethod.client;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import templateMethod.framework.AbstractMemberDao;
+
+//추상클래스 상속받고 추상메서드 사용자가 구현 
+public class MemberDao extends AbstractMemberDao{
+
+	@Override
+	public Connection getConnection() {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe"
+					, "bookmanager", "1234");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return conn;
+	}
+}

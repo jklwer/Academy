@@ -1,0 +1,30 @@
+package templateCallback.client;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import strategy.framework.MemberDao;
+
+public class Run {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String password = new MemberDao().selectPassword("dev", () -> {
+			Connection conn = null;		
+			
+				try {
+					conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe"
+							, "bookmanager", "1234");
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				return conn;
+			});
+		
+		System.out.println("dev님의 비밀번호는 " + password + " 입니다.");
+		
+	}
+	
+}

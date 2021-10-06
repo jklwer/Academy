@@ -1,0 +1,6 @@
+package templateMethod.client;
+
+
+public class MemberDao extends AbstractMemberDao{
+
+}
